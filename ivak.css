@@ -1,7 +1,7 @@
 :root {
-  --text-color: #1e1e1e; 
-  --background-color: #f2f2f2;
-  --card-bg: #ffffff;
+  --text-color: #fdfdfd; 
+  --background-color: #ebebeb;
+  --card-bg: #c8d8d8;
   --accent-gradient-blue: linear-gradient(100deg, #0778f8, #a809b6);
  
   --navbar-bg: #fff; 
@@ -47,7 +47,6 @@ main {
 
 .navbar-title {
   font-family: "Major Mono Display", monospace;
-  /* font-family: "Abel", sans-serif; */
   font-size: 45px;
   background: var(--accent-gradient-blue);
   -webkit-background-clip: text;
@@ -71,6 +70,94 @@ main {
   transition: transform 0.4s ease;
 }
 
-#card-title{
-  font-family: "Abel", sans-serif;
+/* .card {
+  background-color: #1e1e2f;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 40px auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  color: #fff;
+  font-family: 'Abel', sans-serif;
+} */
+
+.card {
+  background: #1f1f2e;
+  border-radius: 16px;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+  box-shadow: 0 0 20px rgba(160, 0, 255, 0.2);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to right, #2962FF, #AA00FF);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.logo-inside {
+  height: 40px;
+}
+
+.api-key-container {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.api-key-container input {
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.prompt-text {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.chat-container {
+  margin-bottom: 20px;
+}
+
+.chat-input {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+#send-button {
+  background: linear-gradient(to right, #2962FF, #AA00FF);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+#send-button:hover {
+  opacity: 0.8;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #181818;
+  color: #aaa;
 }
