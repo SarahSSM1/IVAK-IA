@@ -6,8 +6,8 @@
  
   --navbar-bg: #fff; 
 
-  --footer-text: #fff;
-  --footer-bg: var(--accent-gradient-purple);
+  /* --footer-text: #fff;
+  --footer-bg: var(--accent-gradient-purple); */
 }
 
 * {
@@ -17,7 +17,7 @@
 }
 
 body {
-  font-family: "Almendra Display", serif;
+  font-family: "Fascinate Inline", system-ui;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,9 +46,8 @@ main {
 }
 
 .navbar-title {
-  /* font-family: "Fascinate Inline", system-ui; */
-  /* font-family: "Major Mono Display", monospace; */
-  font-family: "Abel", sans-serif;
+  font-family: "Major Mono Display", monospace;
+  /* font-family: "Abel", sans-serif; */
   font-size: 45px;
   background: var(--accent-gradient-blue);
   -webkit-background-clip: text;
@@ -70,4 +69,8 @@ main {
   justify-content: center;
   gap: 15px;
   transition: transform 0.4s ease;
+}
+
+#card-title{
+  font-family: "Abel", sans-serif;
 }
