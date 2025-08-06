@@ -2,10 +2,10 @@
   --text-color: #1e1e1e; 
   --background-color: #f2f2f2;
   --card-bg: #ffffff;
-  --accent-gradient-orange: linear-gradient(90deg, #ff6a00, #a200ff);
+  --accent-gradient-blue: linear-gradient(100deg, #0778f8, #a809b6);
  
   --navbar-bg: #fff; 
-  
+
   --footer-text: #fff;
   --footer-bg: var(--accent-gradient-purple);
 }
@@ -46,9 +46,11 @@ main {
 }
 
 .navbar-title {
-  font-family: "Fascinate Inline", system-ui;
-  font-size: 30px;
-  background: var(--accent-gradient-orange);
+  /* font-family: "Fascinate Inline", system-ui; */
+  /* font-family: "Major Mono Display", monospace; */
+  font-family: "Abel", sans-serif;
+  font-size: 45px;
+  background: var(--accent-gradient-blue);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -57,9 +59,6 @@ main {
   text-align: center;
   max-width: 90%;
 }
-
-
-
 
 .card {
   background-color: var(--card-bg);
