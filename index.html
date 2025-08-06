@@ -10,38 +10,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Major+Mono+Display&display=swap" rel="stylesheet">
   </head>
   <body>
-<header>
+    <header>
         <nav class="navbar">
             <h1 class="navbar-title">IVAK</h1>
         </nav>
     </header>
 
     <main>
-       <div class="card">
-        <header>
-          <h1 id="card-title">IVAK</h1>
+      <div class="card">
+        <div class="card-header">
+          <h1 class="nav-card-title">IVAK</h1>
 
           <div class="api-key-container">
             <label for="api-key">Chave da OpenIA:</label>
             <input type="password" id="api-key" placeholder="Insira sua chave de API aqui">
           </div>
-        </header>
-        
+        </div>
+
         <p>Digite sua pergunta:</p>
         
         <div class="chat-container">
-            <div id="chat-output"></div>
-            <div class="chat-input">
-                <input type="text" id="user-input" placeholder= "Digite aqui sua pergunta">
-                <button id="send-button">Enviar Pergunta</button>
-            </div>
+          <div id="chat-output"></div>
+          <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Digite aqui sua pergunta">
+            <button id="send-button">Enviar Pergunta</button>
+          </div>
         </div>
+
         <div id="ai-response-container" class="hidden">
-            <h2>Resposta da IVAK:</h2>
-            <div id="ai-response-output"></div>
-            <input type="text" id="user-input" placeholder= "Resposta">
+          <h2>Resposta da IVAK:</h2>
+          <div id="ai-response-output"></div>
+          <input type="text" id="user-input" placeholder="Resposta">
         </div>
-        </div>
+      </div>
     </main>
 
     <footer>
