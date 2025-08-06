@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IVAK</title>
-    <link rel="stylesheet" href="ivak.css" />
-  </head>
-  <body>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IVAK Assistente</title>
+    <link rel="stylesheet" href="ivak.css">
+</head>
+<body>
     <header>
-      <nav class="navbar">
-        <h1 class="navbar-title">IVAK</h1>
-      </nav>
+        <nav class="navbar">
+            <h1 class="navbar-title">IVAK</h1>
+        </nav>
     </header>
 
-   <br><br>
+    <main>
+        <div class="api-key-container">
+            <label for="api-key">Chave da OpenIA:</label>
+            <input type="password" id="api-key" placeholder="Insira sua chave de API aqui">
+        </div>
+        
+        <p>Digite sua pergunta:</p>
+        
+        <div class="chat-container">
+            <div id="chat-output"></div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder= "Digite aqui sua pergunta">
+                <button id="send-button">Enviar Pergunta</button>
+            </div>
+        </div>
+        <div id="ai-response-container" class="hidden">
+            <h2>Resposta da IVAK:</h2>
+            <div id="ai-response-output"></div>
+            <input type="text" id="user-input" placeholder= "Resposta">
+        </div>
+    </main>
 
-    <div class="card">
-      <header>
-        <h1>IVAK</h1>
-        <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias a minima
-        eius ex. Labore, quos suscipit in doloremque doloribus repellat tempore
-        animi quibusdam quae placeat sit, nihil soluta nesciunt at.
-        </p>
-      </header>
-     
-      <p> ggdgfgfhf </p>
-      
-    </div>
+    <footer>
+        <p>&copy;2025 IVAK</p>
+    </footer>
 
     <script src="ivak.js"></script>
-  </body>
+</body>
 </html>
