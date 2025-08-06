@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IVAK Assistente</title>
-    <link rel="stylesheet" href="ivak.css">
-</head>
-<body>
-    <header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IVAK</title>
+    <link rel="stylesheet" href="ivak.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Major+Mono+Display&display=swap" rel="stylesheet">
+  </head>
+  <body>
+<header>
         <nav class="navbar">
             <h1 class="navbar-title">IVAK</h1>
         </nav>
     </header>
 
     <main>
-        <div class="api-key-container">
+       <div class="card">
+        <header>
+          <h1 id="card-title">IVAK</h1>
+
+          <div class="api-key-container">
             <label for="api-key">Chave da OpenIA:</label>
             <input type="password" id="api-key" placeholder="Insira sua chave de API aqui">
-        </div>
+          </div>
+        </header>
         
         <p>Digite sua pergunta:</p>
         
@@ -33,6 +41,7 @@
             <div id="ai-response-output"></div>
             <input type="text" id="user-input" placeholder= "Resposta">
         </div>
+        </div>
     </main>
 
     <footer>
@@ -42,3 +51,6 @@
     <script src="ivak.js"></script>
 </body>
 </html>
+
+
+
