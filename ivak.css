@@ -45,6 +45,11 @@ main {
   z-index: 1000;
 }
 
+.navbar-logo {
+  height: 40px; /* você pode ajustar esse valor para maior ou menor */
+  margin-right: 10px; /* espaço entre a logo e o texto */
+}
+
 .navbar-title {
   font-family: "Major Mono Display", monospace;
   font-size: 45px;
