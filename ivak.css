@@ -6,8 +6,8 @@
  
   --navbar-bg: #fff; 
 
-  /* --footer-text: #fff;
-  --footer-bg: var(--accent-gradient-purple); */
+  --footer-text: #fff;
+  --footer-bg: #181818;
 }
 
 * {
@@ -43,6 +43,11 @@ main {
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+
+.navbar-logo {
+  height: 40px; /* você pode ajustar esse valor para maior ou menor */
+  margin-right: 10px; /* espaço entre a logo e o texto */
 }
 
 .navbar-title {
@@ -155,9 +160,42 @@ main {
   opacity: 0.8;
 }
 
-footer {
+/* footer {
   text-align: center;
   padding: 20px;
-  background-color: #181818;
+  background-color: ;
   color: #aaa;
+} */
+
+/* FOOTER */
+.site-footer {
+  width: 100%;
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  text-align: center;
+  padding: 20px 20px;
+  margin-top: auto;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
+/* FOOTER */
+
+
+
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 15px;
+  }
+
+  .navbar-title {
+    font-size: 22px;
+  }
+
+  .site-footer {
+    font-size: 14px;
+    padding: 15px 8px;
+  }
 }
