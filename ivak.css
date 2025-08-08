@@ -3,11 +3,27 @@
   --background-color: #ebebeb;
   --card-bg: #c8d8d8;
   --accent-gradient-blue: linear-gradient(100deg, #0778f8, #a809b6);
- 
   --navbar-bg: #fff; 
-
   --footer-text: #fff;
   --footer-bg: #181818;
+  --accent-1: #0778f8;
+  --accent-2: #a809b6;
+  --accent-gradient: linear-gradient(100deg, var(--accent-1), var(--accent-2));
+  --input-bg: #ebebeb;
+  --input-text: #333;
+}
+
+body.dark-theme {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e2f;
+  --card-shadow: rgba(168, 9, 182, 0.2);
+  --navbar-bg: #1f1f2e;
+  --footer-text: #e0e0e0;
+  --footer-bg: #1f1f2e;
+
+  --input-bg: #2a2a3e;
+  --input-text: #f0f0f0;
 }
 
 * {
@@ -43,6 +59,7 @@ main {
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: background-color 0.3s ease;
 }
 
 .navbar-logo {
@@ -115,17 +132,28 @@ main {
   color: white;
 }
 
-.api-key-container input {
+.api-key-container input,
+.chat-input input {
   padding: 8px;
   border-radius: 6px;
-  border: none;
+  border: 1px solid transparent;
   margin-top: 6px;
   font-size: 14px;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.chat-input input {
+  flex: 1;
 }
 
 .prompt-text {
+  font-family: "Fascinate Inline", system-ui;
   font-size: 16px;
   margin-bottom: 10px;
+  color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
 .chat-container {
@@ -136,13 +164,6 @@ main {
   display: flex;
   gap: 10px;
   margin-top: 10px;
-}
-
-.chat-input input {
-  flex: 1;
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
 }
 
 #send-button {
@@ -191,11 +212,58 @@ main {
   }
 
   .navbar-title {
-    font-size: 22px;
+    font-size: 28px;
   }
 
   .site-footer {
     font-size: 14px;
     padding: 15px 8px;
   }
+}
+
+#theme-toggle-button {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  z-index: 1001; 
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; 
+  border: none;
+  background-color: var(--card-bg); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+#theme-toggle-button:hover {
+  transform: scale(1.1); 
+}
+
+.icon {
+  font-size: 24px;
+  position: absolute; 
+  transition: transform 0.4s cubic-bezier(0.45, 0.05, 0.55, 0.95), opacity 0.3s ease;
+}
+
+.icon-sun {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+.icon-moon {
+  transform: translateY(100%) scale(0.5); 
+  opacity: 0;
+}
+
+body.dark-theme .icon-sun {
+  transform: translateY(-100%) scale(0.5);
+  opacity: 0;
+}
+body.dark-theme .icon-moon {
+  transform: translateY(0) scale(1); 
+  opacity: 1;
 }

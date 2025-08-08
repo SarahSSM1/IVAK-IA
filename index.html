@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="pt-br">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IVAK</title>
+    <meta name="description" content="IVAK, sua assistente de IA para responder a suas perguntas." />
+    <title>IVAK - Sua assistente</title>
     <link rel="stylesheet" href="ivak.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Major+Mono+Display&display=swap" rel="stylesheet">
   </head>
   <body>
+      <button id="theme-toggle-button" aria-label="Mudar tema">
+      <span class="icon icon-sun">☀️</span>
+      <span class="icon icon-moon">🌙</span>
+    </button>
+
     <header> 
       <nav class="navbar">
         <img src="/Espiral Roxa Minimalista.png" alt="Espiral Roxa Minimalista" class="navbar-logo">
@@ -21,14 +27,14 @@
       <div class="card">
         <div class="card-header">
           <h1 class="nav-card-title">IVAK</h1>
-
           <div class="api-key-container">
             <label for="api-key">Chave da OpenIA:</label>
             <input type="password" id="api-key" placeholder="Insira sua chave de API aqui">
           </div>
         </div>
 
-        <p>Digite sua pergunta:</p>
+         <form id="chat-form">
+            <label for="user-input" class="prompt-text">Digite sua pergunta:</label>
         
         <div class="chat-container">
           <div id="chat-output"></div>
