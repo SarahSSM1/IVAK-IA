@@ -5,7 +5,8 @@
 ## Repositório destinado aos exercícios da Academia de Lógica resolvidos pelo G15 Codificados 👩🏽‍💻👾💻
 ```bash
     * Juliana Cristina Alves Fioretti. 
-    * Sarah Santana de Morais.  
+    * Sarah Santana de Morais.
+    * Tailane Oliveira  
 ```
 
 ---
