@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function getGeminiResponse(prompt, apiKey) {
         await new Promise(resolve => setTimeout(resolve, 1500));
-        return `Olá! Esta é uma resposta de teste mockada para a sua pergunta: "${prompt}".`;
+        return `Olá! Esta é uma resposta de teste para sua pergunta "${prompt}".`;
 
         const response = await fetch(fullUrl, {
             method: 'POST',
