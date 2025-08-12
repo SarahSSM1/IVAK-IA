@@ -63,8 +63,8 @@ main {
 }
 
 .navbar-logo {
-  height: 40px; /* você pode ajustar esse valor para maior ou menor */
-  margin-right: 10px; /* espaço entre a logo e o texto */
+  height: 40px; 
+  margin-right: 10px;
 }
 
 .navbar-title {
@@ -91,17 +91,6 @@ main {
   gap: 15px;
   transition: transform 0.4s ease;
 }
-
-/* .card {
-  background-color: #1e1e2f;
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 600px;
-  margin: 40px auto;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  color: #fff;
-  font-family: 'Abel', sans-serif;
-} */
 
 .card {
   background: #1f1f2e;
@@ -181,14 +170,6 @@ main {
   opacity: 0.8;
 }
 
-/* footer {
-  text-align: center;
-  padding: 20px;
-  background-color: ;
-  color: #aaa;
-} */
-
-/* FOOTER */
 .site-footer {
   width: 100%;
   background: var(--footer-bg);
@@ -200,7 +181,7 @@ main {
   letter-spacing: 0.5px;
   box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
 }
-/* FOOTER */
+
 
 
 
