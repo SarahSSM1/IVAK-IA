@@ -1,57 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="IVAK, sua assistente de IA para responder a suas perguntas." />
-    <title>IVAK - Sua assistente</title>
-    <link rel="stylesheet" href="ivak.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Major+Mono+Display&display=swap" rel="stylesheet">
-  </head>
-  <body>
-      <button id="theme-toggle-button" aria-label="Mudar tema">
-      <span class="icon icon-sun">☀️</span>
-      <span class="icon icon-moon">🌙</span>
-    </button>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IVAK, sua assistente de IA para responder a suas perguntas." />
+  <title>IVAK - Sua assistente</title>
+  <link rel="stylesheet" href="ivak.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abel&family=Major+Mono+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+  <button id="theme-toggle-button" aria-label="Mudar tema">
+    <span class="icon icon-sun">☀️</span>
+    <span class="icon icon-moon">🌙</span>
+  </button>
 
-    <header> 
-      <nav class="navbar">
-        <img src="/Espiral Roxa Minimalista.png" alt="Espiral Roxa Minimalista" class="navbar-logo">
-        <h1 class="navbar-title">IVAK</h1>
-      </nav>
-    </header>
+  <header> 
+    <nav class="navbar">
+      <img src="/Espiral Roxa Minimalista.png" alt="Espiral Roxa Minimalista" class="navbar-logo">
+      <h1 class="navbar-title">IVAK</h1>
+    </nav>
+  </header>
 
-    <main>
-      <div class="card">
-        <div class="card-header">
-          <h1 class="nav-card-title">IVAK</h1>
-          <div class="api-key-container">
-            <label for="api-key">Chave da OpenIA:</label>
-            <input type="password" id="api-key" placeholder="Insira sua chave de API aqui">
-          </div>
+  <main>
+    <div class="card">
+      <div class="card-header">
+        <h1 class="nav-card-title">IVAK</h1>
+        <div class="api-key-container">
+          <label for="api-key">Chave da Gemini:</label>
+          <input type="password" id="api-key" placeholder="Insira sua chave de API aqui">
         </div>
+      </div>
 
-         <form id="chat-form">
-            <label for="user-input" class="prompt-text">Digite sua pergunta:</label>
-        
+      <form id="chat-form">
+        <label for="user-input" class="prompt-text">Digite sua pergunta:</label>
         <div class="chat-container">
           <div id="chat-output"></div>
           <div class="chat-input">
-            <input type="text" id="user-input" placeholder="Digite sua pergunta:">
-            <button id="send-button">Enviar Pergunta</button>
+            <input type="text" id="user-input" placeholder="Digite sua pergunta" autocomplete="off">
+            <button id="send-button" type="submit">Enviar</button>
+          </div>
         </div>
-      </div>
-    </main>
+      </form>
+    </div>
+  </main>
 
-    <footer class="site-footer">
-        <p>&copy;2025 IVAK</p>
-    </footer>
+  <footer class="site-footer">
+    <p>&copy;2025 IVAK</p>
+  </footer>
 
-    <script src="ivak.js"></script>
+  <script src="ivak.js"></script>
 </body>
 </html>
-
-
-
