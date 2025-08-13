@@ -1,4 +1,4 @@
-// Tema escuro
+// Tema Escuro 
 const themeToggleButton = document.getElementById("theme-toggle-button");
 const body = document.body;
 const savedTheme = localStorage.getItem("theme");
@@ -10,14 +10,23 @@ themeToggleButton.addEventListener("click", () => {
   localStorage.setItem("theme", body.classList.contains("dark-theme") ? "dark" : "light");
 });
 
-// Elementos do chat
+
+
 const chatForm = document.getElementById("chat-form");
 const userInput = document.getElementById("user-input");
 const chatOutput = document.getElementById("chat-output");
+const chatOutputContainer = document.getElementById("chat-output-container");
+const lastQuestion = document.getElementById("last-question");
+
 const apiKeyInput = document.getElementById("api-key");
 const sendButton = document.getElementById("send-button");
 
-// Carrega chave salva
+const copyButton = document.getElementById("copy-button");
+const clearButton = document.getElementById("clear-button");
+const charCounter = document.getElementById("char-counter");
+
+
+// Carregar e salvar chave API
 const savedApiKey = localStorage.getItem("gemini-api-key");
 if (savedApiKey) apiKeyInput.value = savedApiKey;
 
@@ -25,6 +34,14 @@ apiKeyInput.addEventListener("input", () => {
   localStorage.setItem("gemini-api-key", apiKeyInput.value.trim());
 });
 
+
+// Contador de caracteres
+userInput.addEventListener("input", () => {
+  charCounter.textContent = `${userInput.value.length} caracteres`;
+});
+
+
+// Função para adicionar mensagens
 function addMessage(sender, text) {
   const msg = document.createElement("div");
   msg.classList.add("chat-message", sender);
@@ -33,7 +50,8 @@ function addMessage(sender, text) {
   chatOutput.scrollTop = chatOutput.scrollHeight;
 }
 
-// Envia pergunta
+
+// Enviar pergunta
 chatForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -43,8 +61,14 @@ chatForm.addEventListener("submit", async (e) => {
   if (!apiKey) return alert("Insira sua chave da API Gemini.");
   if (!pergunta) return;
 
+  // Exibir pergunta junto com resposta
+  lastQuestion.textContent = pergunta;
+  chatOutput.innerHTML = "";
+  chatOutputContainer.style.display = "block";
+
   addMessage("user", pergunta);
   userInput.value = "";
+  charCounter.textContent = "0 caracteres";
   sendButton.disabled = true;
 
   const loadingMsg = document.createElement("div");
@@ -78,5 +102,30 @@ chatForm.addEventListener("submit", async (e) => {
     addMessage("ivak", "Erro: " + err.message);
   } finally {
     sendButton.disabled = false;
+  }
+});
+
+// Botão Copiar Resposta
+copyButton.addEventListener("click", async () => {
+  const textToCopy = chatOutput.textContent.trim();
+  if (!textToCopy) return alert("Nenhuma resposta para copiar.");
+
+  try {
+    await navigator.clipboard.writeText(textToCopy);
+    copyButton.textContent = "✅ Copiado!";
+    setTimeout(() => copyButton.textContent = "📋 Copiar", 2000);
+  } catch {
+    alert("Não foi possível copiar para a área de transferência.");
+  }
+});
+
+// Botão Limpar Resposta
+clearButton.addEventListener("click", () => {
+  if (confirm("Tem certeza que deseja limpar a resposta?")) {
+    chatOutput.innerHTML = "";
+    lastQuestion.textContent = "";
+    chatOutputContainer.style.display = "none";
+    userInput.value = "";
+    charCounter.textContent = "0 caracteres";
   }
 });
