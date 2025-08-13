@@ -34,9 +34,24 @@
       </div>
 
       <form id="chat-form">
-        <label for="user-input" class="prompt-text">Digite sua pergunta:</label>
+        <label for="user-input" class="prompt-text"></label>
+
+        <!-- Contador de caracteres -->
+        <small id="char-counter"></small>
+
         <div class="chat-container">
-          <div id="chat-output"></div>
+          
+          <div id="chat-output-container" style="display: none;">
+            <p><strong>Pergunta:</strong> <span id="last-question"></span></p>
+            <p><strong>Resposta:</strong></p>
+            <div id="chat-output"></div>
+            
+            <div class="response-buttons">
+              <button type="button" id="copy-button">📋 Copiar</button>
+              <button type="button" id="clear-button">🗑️ Limpar</button>
+            </div>
+          </div>
+
           <div class="chat-input">
             <input type="text" id="user-input" placeholder="Digite sua pergunta" autocomplete="off">
             <button id="send-button" type="submit">Enviar</button>
