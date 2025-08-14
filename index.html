@@ -31,16 +31,22 @@
           <label for="api-key">Chave da Gemini:</label>
           <input type="password" id="api-key" placeholder="Insira sua chave de API aqui">
         </div>
+        <!-- Seletor atualizado de modelos -->
+        <div class="model-container">
+          <label for="model-select">Modelo:</label>
+          <select id="model-select">
+            <option value="gemini-2.0-pro">Gemini 2.0 Pro</option>
+            <option value="gemini-2.0-flash">Gemini 2.0 Flash</option>
+            <option value="gemini-1.5-pro-latest">Gemini 1.5 Pro (latest)</option>
+            <option value="gemini-1.5-flash-latest" selected>Gemini 1.5 Flash (latest)</option>
+          </select>
+        </div>
       </div>
 
       <form id="chat-form">
-        <label for="user-input" class="prompt-text"></label>
-
-        <!-- Contador de caracteres -->
         <small id="char-counter"></small>
 
         <div class="chat-container">
-          
           <div id="chat-output-container" style="display: none;">
             <p><strong>Pergunta:</strong> <span id="last-question"></span></p>
             <p><strong>Resposta:</strong></p>
