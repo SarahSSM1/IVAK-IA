@@ -1,4 +1,4 @@
-// Tema Escuro 
+// ===== Tema Escuro =====
 const themeToggleButton = document.getElementById("theme-toggle-button");
 const body = document.body;
 const savedTheme = localStorage.getItem("theme");
@@ -10,38 +10,42 @@ themeToggleButton.addEventListener("click", () => {
   localStorage.setItem("theme", body.classList.contains("dark-theme") ? "dark" : "light");
 });
 
-
-
+// ===== Elementos =====
 const chatForm = document.getElementById("chat-form");
 const userInput = document.getElementById("user-input");
 const chatOutput = document.getElementById("chat-output");
 const chatOutputContainer = document.getElementById("chat-output-container");
 const lastQuestion = document.getElementById("last-question");
-
 const apiKeyInput = document.getElementById("api-key");
 const sendButton = document.getElementById("send-button");
-
 const copyButton = document.getElementById("copy-button");
 const clearButton = document.getElementById("clear-button");
 const charCounter = document.getElementById("char-counter");
+const modelSelect = document.getElementById("model-select"); // novo
 
-
-// Carregar e salvar chave API
+// ===== Carregar dados salvos =====
 const savedApiKey = localStorage.getItem("gemini-api-key");
 if (savedApiKey) apiKeyInput.value = savedApiKey;
 
+const savedModel = localStorage.getItem("gemini-model") || "gemini-1.5-flash-latest";
+modelSelect.value = savedModel;
+
+// Salvar API key
 apiKeyInput.addEventListener("input", () => {
   localStorage.setItem("gemini-api-key", apiKeyInput.value.trim());
 });
 
+// Salvar modelo escolhido
+modelSelect.addEventListener("change", () => {
+  localStorage.setItem("gemini-model", modelSelect.value);
+});
 
-// Contador de caracteres
+// ===== Contador de caracteres =====
 userInput.addEventListener("input", () => {
   charCounter.textContent = `${userInput.value.length} caracteres`;
 });
 
-
-// Função para adicionar mensagens
+// ===== Função para adicionar mensagens =====
 function addMessage(sender, text) {
   const msg = document.createElement("div");
   msg.classList.add("chat-message", sender);
@@ -50,22 +54,20 @@ function addMessage(sender, text) {
   chatOutput.scrollTop = chatOutput.scrollHeight;
 }
 
-
-// Enviar pergunta
+// ===== Enviar pergunta =====
 chatForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const pergunta = userInput.value.trim();
   const apiKey = apiKeyInput.value.trim();
+  const model = modelSelect.value;
 
   if (!apiKey) return alert("Insira sua chave da API Gemini.");
   if (!pergunta) return;
 
-  // Exibir pergunta junto com resposta
   lastQuestion.textContent = pergunta;
   chatOutput.innerHTML = "";
   chatOutputContainer.style.display = "block";
-
   addMessage("user", pergunta);
   userInput.value = "";
   charCounter.textContent = "0 caracteres";
@@ -77,7 +79,7 @@ chatForm.addEventListener("submit", async (e) => {
   chatOutput.appendChild(loadingMsg);
 
   try {
-    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
     const response = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -105,7 +107,7 @@ chatForm.addEventListener("submit", async (e) => {
   }
 });
 
-// Botão Copiar Resposta
+// ===== Botão Copiar =====
 copyButton.addEventListener("click", async () => {
   const textToCopy = chatOutput.textContent.trim();
   if (!textToCopy) return alert("Nenhuma resposta para copiar.");
@@ -119,7 +121,7 @@ copyButton.addEventListener("click", async () => {
   }
 });
 
-// Botão Limpar Resposta
+// ===== Botão Limpar =====
 clearButton.addEventListener("click", () => {
   if (confirm("Tem certeza que deseja limpar a resposta?")) {
     chatOutput.innerHTML = "";
