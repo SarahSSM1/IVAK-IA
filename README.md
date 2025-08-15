@@ -73,4 +73,4 @@ git clone https://github.com/seu-usuario/ivak.git
 ```
 
 
-3. Abra o arquivo index.html no navegador e comece a interagir com a IVAK.
+2. Abra o arquivo index.html no navegador e comece a interagir com a IVAK.
