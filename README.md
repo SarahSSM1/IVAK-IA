@@ -72,10 +72,5 @@ Construir uma assistente virtual leve e funcional, que possa ser facilmente inco
 git clone https://github.com/seu-usuario/ivak.git
 ```
 
-2. Insira sua chave de API Gemini no script.js:
-
-```bash
-const GEMINI_API_KEY = "SUA_CHAVE_AQUI";
-```
 
 3. Abra o arquivo index.html no navegador e comece a interagir com a IVAK.
