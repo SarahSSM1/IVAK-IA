@@ -46,9 +46,12 @@ userInput.addEventListener("input", () => {
 });
 
 // ===== Função para adicionar mensagens =====
-function addMessage(sender, text) {
+function addMessage(sender, text, isError = false) {
   const msg = document.createElement("div");
   msg.classList.add("chat-message", sender);
+  if (isError) {
+    msg.classList.add("error-message");
+  }
   msg.textContent = text;
   chatOutput.appendChild(msg);
   chatOutput.scrollTop = chatOutput.scrollHeight;
@@ -99,13 +102,39 @@ chatForm.addEventListener("submit", async (e) => {
     const resposta = data.candidates?.[0]?.content?.parts?.[0]?.text || "Sem resposta";
     addMessage("ivak", resposta);
 
+    setTimeout(() => {
+    loadingMsg.remove();
+    addMessage("ivak", resposta);
+  }, 5000);
+
   } catch (err) {
     loadingMsg.remove();
-    addMessage("ivak", "Erro: " + err.message);
+    const errorMessage = err.message.toLowerCase();
+
+    if (errorMessage.includes("api key") || errorMessage.includes("permission denied")) {
+      addMessage(
+        "ivak",
+        "❌ Erro: Sua chave da API parece inválida. Por favor, verifique a chave e tente novamente.",
+        true
+      );
+    } else if (err instanceof TypeError && errorMessage.includes('failed to fetch')) {
+      addMessage(
+        "ivak",
+        "🔌 Erro de Conexão: Não foi possível se comunicar com o servidor. Verifique sua conexão com a internet.",
+        true
+      );
+    } else {
+      addMessage(
+        "ivak",
+        "Houve um problema ao processar sua solicitação. Tente novamente.",
+        true
+      );
+    }
   } finally {
     sendButton.disabled = false;
   }
 });
+
 
 // ===== Botão Copiar =====
 copyButton.addEventListener("click", async () => {
