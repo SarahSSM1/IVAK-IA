@@ -1,9 +1,9 @@
 :root {
-  --text-color: #fdfdfd; 
+  --text-color: #fdfdfd;
   --background-color: #ebebeb;
   --card-bg: #c8d8d8;
   --accent-gradient-blue: linear-gradient(100deg, #0778f8, #a809b6);
-  --navbar-bg: #fff; 
+  --navbar-bg: #fff;
   --footer-text: #fff;
   --footer-bg: #181818;
   --accent-1: #0778f8;
@@ -21,7 +21,6 @@ body.dark-theme {
   --navbar-bg: #1f1f2e;
   --footer-text: #e0e0e0;
   --footer-bg: #1f1f2e;
-
   --input-bg: #2a2a3e;
   --input-text: #f0f0f0;
 }
@@ -32,6 +31,10 @@ body.dark-theme {
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px; 
+}
+
 body {
   font-family: "Fascinate Inline", system-ui;
   display: flex;
@@ -40,18 +43,20 @@ body {
   min-height: 100vh;
   color: var(--text-color);
   background-color: var(--background-color);
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 main {
   width: 90%;
   max-width: 800px;
-  padding: 40px 20px;
+  padding: 2.5rem 1rem; 
+  flex-grow: 1; 
 }
 
 .navbar {
-  width: 100vw;
+  width: 100vw; 
   background-color: var(--navbar-bg);
-  padding: 15px;
+  padding: 15px ; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,13 +68,13 @@ main {
 }
 
 .navbar-logo {
-  height: 40px; 
-  margin-right: 10px;
+  height: 2.5rem; 
+  margin-right: 0.5rem; 
 }
 
 .navbar-title {
   font-family: "Major Mono Display", monospace;
-  font-size: 45px;
+  font-size: clamp(1.5rem, 5vw, 2.5rem); 
   background: var(--accent-gradient-blue);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -78,96 +83,9 @@ main {
   letter-spacing: 1px;
   text-align: center;
   max-width: 90%;
-}
-
-.card {
-  background-color: var(--card-bg);
-  border-radius: 20px;
-  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.4);
-  padding: 20px 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 15px;
-  transition: transform 0.4s ease;
-}
-
-.card {
-  background: #1f1f2e;
-  border-radius: 16px;
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 24px;
-  box-shadow: 0 0 20px rgba(160, 0, 255, 0.2);
-}
-
-.card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(to right, #2962FF, #AA00FF);
-  border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 20px;
-}
-
-.logo-inside {
-  height: 40px;
-}
-
-.api-key-container {
-  display: flex;
-  flex-direction: column;
-  color: white;
-}
-
-.api-key-container input,
-.chat-input input {
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid transparent;
-  margin-top: 6px;
-  font-size: 14px;
-  background-color: var(--input-bg);
-  color: var(--input-text);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.chat-input input {
-  flex: 1;
-}
-
-.prompt-text {
-  font-family: "Fascinate Inline", system-ui;
-  font-size: 16px;
-  margin-bottom: 10px;
-  color: var(--text-color);
-  transition: color 0.3s ease;
-}
-
-.chat-container {
-  margin-bottom: 20px;
-}
-
-.chat-input {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-#send-button {
-  background: linear-gradient(to right, #2962FF, #AA00FF);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 10px 16px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-#send-button:hover {
-  opacity: 0.8;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .site-footer {
@@ -175,59 +93,144 @@ main {
   background: var(--footer-bg);
   color: var(--footer-text);
   text-align: center;
-  padding: 20px 20px;
+  padding: 1.25rem 1rem;
   margin-top: auto;
-  font-size: 16px;
+  font-size: 0.875rem; 
   letter-spacing: 0.5px;
   box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
 
-
-
-/* RESPONSIVIDADE */
-@media (max-width: 600px) {
-  .navbar {
-    padding: 15px;
-  }
-
-  .navbar-title {
-    font-size: 28px;
-  }
-
-  .site-footer {
-    font-size: 14px;
-    padding: 15px 8px;
-  }
+.card {
+  background: var(--card-bg);
+  border-radius: 1rem; 
+  max-width: 600px;
+  margin: 2.5rem auto; 
+  padding: 1.5rem; 
+  box-shadow: 0 0 20px rgba(160, 0, 255, 0.2);
+  display: flex;
+  flex-direction: column; 
+  gap: 1rem; 
+  transition: background-color 0.3s ease;
 }
+
+.card-header {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  background: linear-gradient(to right, #2962FF, #AA00FF);
+  border-radius: 0.75rem;
+  padding: 1rem; 
+  position: relative; 
+  gap: 1.5rem; /
+}
+
+.logo-ivak { 
+  font-family: "Major Mono Display", monospace;
+  font-size: 2rem; 
+  color: white;
+  margin-bottom: 0; 
+  text-align: center; 
+  width: 100%; 
+}
+
+.api-key-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  color: white; 
+  width: 100%;
+  gap: 0.3rem; 
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  gap: 0.3rem; 
+  color: white;
+  width: 100%;
+}
+
+.api-key-container input,
+.chat-input input,
+.header-right select { 
+  padding: 1rem; 
+  border-radius: 0.5rem; 
+  border: 1px solid transparent;
+  font-size: 0.95rem; 
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%; 
+  outline: none;
+}
+
+.prompt-text {
+  font-family: "Fascinate Inline", system-ui;
+  font-size: 1rem; 
+  margin-bottom: 0.5rem; 
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.chat-container {
+  margin-bottom: 1.25rem; 
+}
+
+.chat-input {
+  display: flex;
+  flex-direction: column; 
+  gap: 0.625rem;
+  margin-top: 0.625rem; 
+}
+
+#send-button {
+  background: linear-gradient(to right, #2962FF, #AA00FF);
+  color: white;
+  border: none;
+  border-radius: 0.5rem; 
+  padding: 0.75rem 1rem; 
+  cursor: pointer;
+  font-weight: bold;
+  transition: opacity 0.3s;
+  flex-grow: 1; 
+}
+
+#send-button:hover {
+  opacity: 0.8;
+}
+
+
 
 #theme-toggle-button {
   position: fixed;
-  top: 25px;
-  right: 25px;
-  z-index: 1001; 
-  width: 50px;
-  height: 50px;
-  border-radius: 50%; 
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001;
+  width: 3rem; 
+  height: 3rem; 
+  border-radius: 50%;
   border: none;
-  background-color: var(--card-bg); 
+  background-color: var(--card-bg);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; 
+  overflow: hidden;
   transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 #theme-toggle-button:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 .icon {
-  font-size: 24px;
-  position: absolute; 
+  font-size: 1.5rem; 
+  position: absolute;
   transition: transform 0.4s cubic-bezier(0.45, 0.05, 0.55, 0.95), opacity 0.3s ease;
 }
 
@@ -235,8 +238,9 @@ main {
   transform: translateY(0) scale(1);
   opacity: 1;
 }
+
 .icon-moon {
-  transform: translateY(100%) scale(0.5); 
+  transform: translateY(100%) scale(0.5);
   opacity: 0;
 }
 
@@ -244,7 +248,171 @@ body.dark-theme .icon-sun {
   transform: translateY(-100%) scale(0.5);
   opacity: 0;
 }
+
 body.dark-theme .icon-moon {
-  transform: translateY(0) scale(1); 
+  transform: translateY(0) scale(1);
   opacity: 1;
 }
+
+
+@media (max-width: 480px) {
+  .navbar-title {
+    font-size: 1.2rem; 
+  }
+
+  .logo-ivak {
+    font-size: 1.8rem; 
+  }
+
+  .card-header {
+    gap: 1rem; 
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .card-header {
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 1rem 1.5rem;
+    gap: 1rem; 
+  }
+
+  .logo-ivak {
+    margin-bottom: 0;
+    text-align: left;
+    width: auto;
+  }
+
+  .api-key-container, .header-right {
+    flex-direction: column; 
+    align-items: center; 
+    width: auto;
+    gap: 0.3rem; 
+  }
+
+  .chat-input {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.625rem;
+  }
+
+  #send-button {
+    flex-grow: 0;
+    width: auto;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card-header {
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    gap: 1.5rem; 
+  }
+
+  .logo-ivak {
+    margin-bottom: 0;
+    text-align: left;
+    width: auto;
+  }
+
+  .api-key-container, .header-right {
+    flex-direction: row; 
+    align-items: center; 
+    width: auto;
+    gap: 0.5rem; 
+  }
+
+  .chat-input {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.625rem;
+  }
+
+  #send-button {
+    flex-grow: 0;
+    width: auto;
+  }
+}
+@media (min-width: 1025px) {
+  .card {
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .navbar-title {
+    font-size: clamp(2rem, 3vw, 3rem);
+  }
+
+  .card-header {
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem; 
+  }
+
+  .api-key-container, .header-right {
+    flex-direction: row; 
+    align-items: center;
+    gap: 0.5rem; 
+  }
+}
+@media (min-width: 481px) {
+  #theme-toggle-button {
+    top: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+#theme-toggle-button {
+  top: 1rem; 
+  right: 1rem;
+  z-index: 1001;
+  width: 3rem; 
+  height: 3rem; 
+  border-radius: 50%;
+  border: none;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+#theme-toggle-button:hover {
+  transform: scale(1.1);
+}
+
+.icon {
+  font-size: 1.5rem;
+  position: absolute;
+  transition: transform 0.4s cubic-bezier(0.45, 0.05, 0.55, 0.95), opacity 0.3s ease;
+}
+
+.icon-sun {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.icon-moon {
+  transform: translateY(100%) scale(0.5);
+  opacity: 0;
+}
+
+body.dark-theme .icon-sun {
+  transform: translateY(-100%) scale(0.5);
+  opacity: 0;
+}
+
+body.dark-theme .icon-moon {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
